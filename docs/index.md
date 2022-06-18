@@ -58,3 +58,5 @@ Our data: explanatory variables / condition time / regions.
 ## In the brain
 ![image](https://user-images.githubusercontent.com/53213766/174433248-352116f0-f29a-4a39-a394-77a5759b67f4.png)
 
+##### Thank you :)
+#### Sai Ganesh N
