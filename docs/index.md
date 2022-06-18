@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+## Maintaining the Brain Functional Connectivity (BFC) in the gambling task using the HCP fMRI data-set.
 
-You can use the [editor on GitHub](https://github.com/SAIGANESH02/Predicting-the-decision-based-on-BFC/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Are there any regions and networks in the brain which are more affected by the Win and Loss Event conditions corresponding to someone’s decision?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Introduction
 
-### Markdown
+To analyze data-set being preprocessed by HCP© for NMA-2021 that they recorded using fMRI is to analyze in this project to maintain connectivity and correlation of the areas which are involved in the task. What we did was make it inquiry what rate of connectivity and correlation are involved during the gambling task designed to evaluate reaction of participants to stimulus.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The test info:  
+- 339 subjects, aged 22-35
+- 360 Parcellated cortical regions, 180/hemisphere
 
-```markdown
-Syntax highlighted code block
+### Project Plan
 
-# Header 1
-## Header 2
-### Header 3
+- We use fMRI data of 339 subjects from Human Connectome Project’s gambling task. 
 
-- Bulleted
-- List
+- A contrast of the brain's Parcells average activity in  reward and loss conditions will be computed for each subject 
 
-1. Numbered
-2. List
+- We will do a parcel based GLM to identify the most sensitive areas of the brain to lose/win distinction. 
 
-**Bold** and _Italic_ and `Code` text
+- Then we will make a correlation matrix of task-dependent functional connectivity of the whole brain to those ROIs we found and compare it for loss and win conditions.
 
-[Link](url) and ![Image](src)
-```
+### Methodology
+![image](https://user-images.githubusercontent.com/53213766/174432999-09d87b2f-58ea-42f0-b63c-4c5782d9f9ee.png)
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### Step by step into the gambling
+![image](https://user-images.githubusercontent.com/53213766/174433022-16ea030f-73ae-47b4-8ab4-f29dd19540c7.png)
 
-### Jekyll Themes
+### Data Wrangling
+Our data: explanatory variables / condition time / regions.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SAIGANESH02/Predicting-the-decision-based-on-BFC/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**Our approach:**
 
-### Support or Contact
+- Creating a data frame for the brain activity.  for each subject and run
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- Averaging the activity over the condition time.  for each parcel
+
+- Choosing the highest informative parcels. rate of activity in fMRI
+
+- Using GLM models.  to ensure that our findings are accurate  
+
+- Building the correlation matrix for win/loss conditions among all interested parcels.
+ 
+- Visualizing the brain connectivity based on the correlations.
+
+### Correlation Matrix
+![image](https://user-images.githubusercontent.com/53213766/174433118-533b6369-1ced-40ce-8ce0-c0edcccf675f.png)
+
+### True / Predication
+- The 20 parcels give the accuracy of result in amount of 0.76, which is analyzed with Ridge Classifier with 20 cross-validation
+- While using the whole 360 parcels with a Logistic Regression model and 20 cross-validation, gave us 0.82 accuracy.
+- Which is higher than our chosen 20 parcels by 6% only.
+
+![image](https://user-images.githubusercontent.com/53213766/174433171-e4309fad-bd9d-4686-850e-785fe9d573af.png)
+
+## Model weights for the 20 parcels
+![image](https://user-images.githubusercontent.com/53213766/174433229-6b605b16-f3c0-4006-a249-7ddce620ab71.png)
+## In the brain
+![image](https://user-images.githubusercontent.com/53213766/174433248-352116f0-f29a-4a39-a394-77a5759b67f4.png)
+
